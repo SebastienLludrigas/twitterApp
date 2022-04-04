@@ -1,9 +1,12 @@
 const express = require('express');
 const path = require('path');
 const morgan = require('morgan');
+const index = require('./routes');
+
+require('./database');
+
 const app = express();
 const port = process.env.PORT || 3000;
-const index = require('./routes');
 
 // Express va aller chercher dans le dossier views par défaut
 // lorsqu'une vue lui sera demandée par la méthode render()
