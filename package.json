@@ -1,21 +1,23 @@
 {
-  "name": "twitter-app",
-  "version": "1.0.0",
-  "description": "",
-  "main": "app.js",
-  "scripts": {
-    "start": "nodemon app.js",
-    "test": "echo \"Error: no test specified\" && exit 1"
-  },
-  "author": "",
-  "license": "ISC",
-  "dependencies": {
-    "express": "^4.17.3",
-    "mongoose": "^6.2.9",
-    "morgan": "^1.10.0",
-    "pug": "^3.0.2"
-  },
-  "devDependencies": {
-    "nodemon": "^2.0.15"
-  }
+   "name": "twitter-app",
+   "version": "1.0.0",
+   "description": "",
+   "main": "app.js",
+   "scripts": {
+      "start": "SET NODE_ENV=development&& nodemon app.js",
+      "start:prod": "SET NODE_ENV=production&& nodemon app.js",
+      "test": "echo \"Error: no test specified\" && exit 1"
+   },
+   "author": "",
+   "license": "ISC",
+   "dependencies": {
+      "errorhandler": "^1.5.1",
+      "express": "^4.17.3",
+      "mongoose": "^6.2.9",
+      "morgan": "^1.10.0",
+      "pug": "^3.0.2"
+   },
+   "devDependencies": {
+      "nodemon": "^2.0.15"
+   }
 }

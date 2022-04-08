@@ -1,14 +1,9 @@
-extends ../layout.pug
-
-block content
-   .d-flex.flex-row.content.mx-auto
-      .profile-container
-         include ../includes/profile.pug
-      .flex-fill.d-flex.flex-column
-         if tweets
-            each tweet in tweets  
-               .card.tweet-element 
-                  div(class="card-body")= tweet.content 
-                     
-
-         
+if tweets
+   each tweet in tweets  
+      div(class="card tweet-element") 
+         div(class="card-body") 
+            div(class="card-text")= tweet.content 
+            button(class="btn btn-danger mt-2 float-right" tweetid=tweet._id)
+               i(class="fa-solid fa-trash-can")
+            a(class="btn btn-warning mt-2 mr-2 float-right" href="/tweets/edit/" + tweet._id)
+               i(class="fa-solid fa-pencil")

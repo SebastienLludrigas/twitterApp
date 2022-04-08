@@ -2,6 +2,7 @@ const express = require('express');
 const path = require('path');
 const morgan = require('morgan');
 const index = require('./routes');
+const errorHandler = require('errorhandler');
 
 require('./database');
 
@@ -29,5 +30,17 @@ app.use(express.urlencoded({ extended: true }));
 
 // Utilise le fichier index.js du dossier routes pour le routing
 app.use(index);
+
+if (process.env.NODE_ENV === 'development') {
+   app.use(errorHandler());
+} else {
+   app.use((err, req, res, next) => {
+      const code = err.code || 500;
+      res.status(code).json({
+         code,
+         message: code === 500 ? null : err.message
+      });
+   }) 
+};
 
 app.listen(port);
